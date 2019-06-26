@@ -11,17 +11,18 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
+import java.util.UUID;
 import java.util.concurrent.Callable;
 
 /**
  * 环绕增强
  */
 public class TimeInterceptor {
-    private Annotation annotation;
 
     @RuntimeType
     public static Object intercept(@Origin Method method, @SuperCall Callable<?> callable) throws Exception {
         long start = System.currentTimeMillis();
+        UUID uuid = UUID.randomUUID();
         try {
             // 原有函数执行
             return callable.call();

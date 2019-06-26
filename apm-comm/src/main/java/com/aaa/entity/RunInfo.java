@@ -9,7 +9,7 @@ import java.io.Serializable;
  */
 public class RunInfo implements Serializable {
     /**
-    线程id
+    主键uuid
      */
     private String id;
     /**
